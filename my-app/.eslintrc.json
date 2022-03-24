@@ -19,6 +19,10 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "airbnb-typescript/base"
       ],
+      "plugins": [
+        "import",
+        "@typescript-eslint"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -37,9 +41,12 @@
           }
         ],
         "import/prefer-default-export": "off",//отключение предпочтения export default
-        "@typescript-eslint/comma-dangle" : [ "error", "never"], //конечные запятые
-        "import/extensions": "off",
-        "import/no-extraneous-dependencies": "off"
+        "@typescript-eslint/comma-dangle": [ "error", "never"], //конечные запятые
+
+        //отключено для первого задания. Пересмотреть эти правила в следующих частях задания
+        "@angular-eslint/no-empty-lifecycle-method": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-useless-constructor": "off"
       }
     },
     {
