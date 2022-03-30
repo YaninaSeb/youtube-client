@@ -1,4 +1,4 @@
-interface ISearch {
+export interface ISearch {
   kind: string,
   etag: string,
   pageInfo: ISearchPageInfo,
@@ -21,12 +21,14 @@ interface ISearchItem {
 interface ISearchItemSnippet {
   publishedAt: string,
   channelId: string,
+  title: string,
   description: string,
   thumbnails: ISearchItemSnippetThumbnails,
   channelTitle: string,
   tags: string[],
   categoryId: string,
   liveBroadcastContent: string,
+  defaultLanguage?: string,
   localized: ISearchItemSnippetLocalized,
   defaultAudioLanguage: string
 }
