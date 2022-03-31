@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-img"><img [src]="onecard.snippet.thumbnails.medium.url" alt="card"></div>
+  
+  <div class="card-statistic">
+    <div class="card-statistic_viewed"><img src="../../../../assets/svg/viewed.svg" alt="viewed"><span> {{ onecard.statistics.viewCount }}</span></div>
+    <div class="card-statistic_like"><img src="../../../../assets/svg/liked.svg" alt="like"><span>{{ onecard.statistics.likeCount }}</span></div>
+    <div class="card-statistic_dislike"><img src="../../../../assets/svg/dislike.svg" alt="dislike"><span>{{ onecard.statistics.dislikeCount }}</span></div>
+    <div class="card-statistic_comment"><img src="../../../../assets/svg/comments.svg" alt="comment"><span>{{ onecard.statistics.commentCount }}</span></div>
+  </div>
+
+  <div class="card-title"> {{ onecard.snippet.title }}</div>
+  
+  <button class="card-more">more...</button>
+</div>

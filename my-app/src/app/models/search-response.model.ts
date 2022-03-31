@@ -10,7 +10,7 @@ interface ISearchPageInfo {
   resultsPerPage: number
 }
 
-interface ISearchItem {
+export interface ISearchItem {
   kind: string,
   etag: string,
   id: string,

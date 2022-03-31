@@ -4,14 +4,15 @@
   align-items: center;
   color: #4F4F4F;
   font-size: 14px;
-
-  position: relative;
-  left: 15vw;
+  
+  position: absolute;
+  top: 0.3vw;
+  right: 5vw;
 }
 .btn-login {
   height: 28px;
   width: 28px;
-  background: url('../../../assets/svg/Subtract.svg');
+  background: url('../../../../assets/svg/Subtract.svg');
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
