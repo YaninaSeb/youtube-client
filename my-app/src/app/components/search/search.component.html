@@ -1,4 +1,3 @@
-<div class="search-result" *ngIf="allCards.length; else noResults"> 
-  <app-search-item  *ngFor="let card of allCards" [onecard]="card"></app-search-item>
+<div class="search-result" *ngIf="allCards.length"> 
+  <app-search-item  *ngFor="let card of allCards" [onecard]="card" [allCards]="allCards"></app-search-item>
 </div>
-<ng-template #noResults>No video...</ng-template>

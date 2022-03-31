@@ -9,12 +9,10 @@ import { youTubeResponse } from '../../mock-response';
 })
 export class SearchComponent {
 
-  //allCards: ISearchItem[] = [];
-  allCards: ISearchItem[] = youTubeResponse.items; //временно
+  public allCards: ISearchItem[] = [];
 
   onSearch() {
     this.allCards = youTubeResponse.items;
   }
-
 
 }

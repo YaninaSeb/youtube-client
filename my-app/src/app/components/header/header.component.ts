@@ -6,13 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  public isFiltersActive = false;
+  @Output() search = new EventEmitter();
+  @Output() showBlockFilters = new EventEmitter();
 
-  changeFiltersVisibility(visibility: boolean) {
-    this.isFiltersActive = visibility;
-  }
-
-  // search() {
-  //   console.log('sdkmaskd')
-  // }
 }

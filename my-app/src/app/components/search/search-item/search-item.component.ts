@@ -7,6 +7,7 @@ import { ISearchItem } from 'src/app/models/search-response.model';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent {
+  @Input() allCards!: ISearchItem[];
 
   @Input() onecard!: ISearchItem;
 

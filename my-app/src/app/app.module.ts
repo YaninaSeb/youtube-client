@@ -11,6 +11,7 @@ import { LogoComponent } from './components/header/logo/logo.component';
 import { SearchFormComponent } from './components/header/search-form/search-form.component';
 import { SettingsButtonComponent } from './components/header/settings-button/settings-button.component';
 import { SearchItemComponent } from './components/search/search-item/search-item.component';
+import { DateHighlightDirective } from './directives/date-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchItemComponent } from './components/search/search-item/search-item
     LogoComponent,
     SearchFormComponent,
     SettingsButtonComponent,
-    SearchItemComponent
+    SearchItemComponent,
+    DateHighlightDirective
   ],
   imports: [
     BrowserModule,

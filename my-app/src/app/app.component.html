@@ -1,4 +1,5 @@
-<!-- <app-header (search)="search.onSearch()"></app-header> -->
-<app-header></app-header>
+<app-header (search)="search.onSearch()" (showBlockFilters)="filters.showBlockFilters()"></app-header>
 
-<app-search></app-search>
+<app-filters #filters></app-filters>
+
+<app-search #search></app-search>

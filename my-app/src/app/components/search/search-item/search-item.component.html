@@ -1,5 +1,8 @@
-<div class="card">
-  <div class="card-img"><img [src]="onecard.snippet.thumbnails.medium.url" alt="card"></div>
+<div [appDateHighlight]="onecard.snippet.publishedAt" class="card">
+
+  <div class="card-img">
+    <img [src]="onecard.snippet.thumbnails.medium.url" alt="card">
+  </div>
   
   <div class="card-statistic">
     <div class="card-statistic_viewed"><img src="../../../../assets/svg/viewed.svg" alt="viewed"><span> {{ onecard.statistics.viewCount }}</span></div>

@@ -1,10 +1,6 @@
 <div class="header">
   <app-logo></app-logo>
-  <app-search-form></app-search-form>
-  <app-settings-button (changeFiltersVisibility)="changeFiltersVisibility($event)"></app-settings-button>
+  <app-search-form (search)="search.emit()"></app-search-form>
+  <app-settings-button (showBlockFilters)="showBlockFilters.emit()"></app-settings-button>
   <app-login></app-login>
-</div>
-
-<div *ngIf="isFiltersActive">
-  <app-filters></app-filters>
 </div>
