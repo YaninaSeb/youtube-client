@@ -1,3 +1,7 @@
 <div class="search-result" *ngIf="allCards.length"> 
-  <app-search-item  *ngFor="let card of allCards" [onecard]="card" [allCards]="allCards"></app-search-item>
+  <app-search-item  
+    *ngFor="let card of (allCards | sortDate : orderByDate | sortView : orderByCountView)" 
+    [onecard]="card" 
+    [allCards]="allCards">
+  </app-search-item>
 </div>

@@ -12,6 +12,8 @@ import { SearchFormComponent } from './components/header/search-form/search-form
 import { SettingsButtonComponent } from './components/header/settings-button/settings-button.component';
 import { SearchItemComponent } from './components/search/search-item/search-item.component';
 import { DateHighlightDirective } from './directives/date-highlight.directive';
+import { SortDatePipe } from './pipes/sort-date.pipe';
+import { SortViewPipe } from './pipes/sort-view.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DateHighlightDirective } from './directives/date-highlight.directive';
     SearchFormComponent,
     SettingsButtonComponent,
     SearchItemComponent,
-    DateHighlightDirective
+    DateHighlightDirective,
+    SortDatePipe,
+    SortViewPipe
   ],
   imports: [
     BrowserModule,

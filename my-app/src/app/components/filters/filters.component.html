@@ -1,7 +1,11 @@
 <div #block_filters class="block_filters" *ngIf="isFiltersActive">
   <div class="title_filters">Sorting by:</div>
-  <button>date</button>
-  <button>count of view</button>
+
+  <button (click)="sortByDate()">date</button>
+
+  <button (click)="sortByCountView()">count of view</button>
+
   <label for="filters_by_word">by word or sentance</label>
+
   <input type="text" id="filters_by_word">
 </div>

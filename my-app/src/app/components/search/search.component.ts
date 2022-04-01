@@ -9,10 +9,20 @@ import { youTubeResponse } from '../../mock-response';
 })
 export class SearchComponent {
 
+  public orderByDate = '';
+  public orderByCountView = '';
+
   public allCards: ISearchItem[] = [];
 
   onSearch() {
     this.allCards = youTubeResponse.items;
+  }
+
+  sortVideosByDate(value: any) {
+    this.orderByDate = value;
+  }
+  sortVideoByCountView(value: any) {
+    this.orderByCountView = value;
   }
 
 }
