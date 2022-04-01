@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() search = new EventEmitter();
+  
   @Output() showBlockFilters = new EventEmitter();
 
 }

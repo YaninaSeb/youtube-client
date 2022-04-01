@@ -10,7 +10,11 @@ import { youTubeResponse } from '../../mock-response';
 export class SearchComponent {
 
   public orderByDate = '';
+
   public orderByCountView = '';
+
+  public keyWord = '';
+
 
   public allCards: ISearchItem[] = [];
 
@@ -18,11 +22,16 @@ export class SearchComponent {
     this.allCards = youTubeResponse.items;
   }
 
-  sortVideosByDate(value: any) {
+  sortVideosByDate(value: string) {
     this.orderByDate = value;
   }
-  sortVideoByCountView(value: any) {
+  
+  sortVideoByCountView(value: string) {
     this.orderByCountView = value;
+  }
+
+  sortVideosByKeyWords(value: string) {
+    this.keyWord = value;
   }
 
 }

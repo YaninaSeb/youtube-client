@@ -8,7 +8,7 @@ import { ISearchItem } from 'src/app/models/search-response.model';
 })
 export class SearchItemComponent {
   @Input() allCards!: ISearchItem[];
-
+  
   @Input() onecard!: ISearchItem;
 
 }

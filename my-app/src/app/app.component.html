@@ -3,7 +3,8 @@
 <app-filters 
   #filters 
   (sortVideosByDate)="search.sortVideosByDate($event)"
-  (sortVideosByCountView)="search.sortVideoByCountView($event)">
+  (sortVideosByCountView)="search.sortVideoByCountView($event)"
+  (sortVideosByKeyWords)="search.sortVideosByKeyWords($event)">
 </app-filters>
 
 <app-search #search></app-search>

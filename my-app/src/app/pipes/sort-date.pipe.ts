@@ -7,11 +7,11 @@ import { ISearchItem } from '../models/search-response.model';
 export class SortDatePipe implements PipeTransform {
 
   transform(value: ISearchItem[], order: string): ISearchItem[] {
-   let result: ISearchItem[] = [];
+    let result: ISearchItem[] = [];
 
     switch (order) {
       case 'asc' : { //по возрастанию
-        result = value.sort( (a,b) => {
+        result = value.sort( (a, b) => {
           let firstDate = new Date(a.snippet.publishedAt).getTime();
           let secondDate = new Date(b.snippet.publishedAt).getTime();
           
@@ -19,10 +19,10 @@ export class SortDatePipe implements PipeTransform {
         });
 
         break;
-      };
+      }
 
       case 'desc' : { //по убыванию
-        result = value.sort( (a,b) => {
+        result = value.sort( (a, b) => {
           let firstDate = new Date(a.snippet.publishedAt).getTime();
           let secondDate = new Date(b.snippet.publishedAt).getTime();
           
@@ -30,7 +30,7 @@ export class SortDatePipe implements PipeTransform {
         });
 
         break;
-      };
+      }
 
       default: {
         result = value;

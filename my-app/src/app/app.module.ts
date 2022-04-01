@@ -14,6 +14,7 @@ import { SearchItemComponent } from './components/search/search-item/search-item
 import { DateHighlightDirective } from './directives/date-highlight.directive';
 import { SortDatePipe } from './pipes/sort-date.pipe';
 import { SortViewPipe } from './pipes/sort-view.pipe';
+import { SortKeywordsPipe } from './pipes/sort-keywords.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SortViewPipe } from './pipes/sort-view.pipe';
     SearchItemComponent,
     DateHighlightDirective,
     SortDatePipe,
-    SortViewPipe
+    SortViewPipe,
+    SortKeywordsPipe
   ],
   imports: [
     BrowserModule,
