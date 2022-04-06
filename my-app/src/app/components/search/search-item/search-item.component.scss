@@ -1,0 +1,52 @@
+.card {
+  width: 260px;
+  height: 330px;
+  margin: 15px;
+  padding: 20px;
+  
+  background-color: #E5E5E5;
+  border-radius: 5px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img img {
+  width: 223px;
+  height: 123px;
+  margin: 0 auto;
+}
+
+.card-statistic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-statistic div {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+}
+.card-statistic span {
+  margin-left: 4px;
+}
+
+.card-title {
+  height: 60px;
+  font-size: 18px;
+  text-align: right;
+  font-weight: bold;
+  color: #4F4F4F;
+}
+
+.card-more {
+  width: 120px;
+  height: 32px;
+  border-radius: 5px;
+  background-color: #2F80ED;
+  color: #FFFFFF;
+  border: none;
+  margin: 0 auto;
+  cursor: pointer;
+}

@@ -1,2 +1,10 @@
-<router-outlet></router-outlet>
-<app-header></app-header>
+<app-header (search)="search.onSearch()" (showBlockFilters)="filters.showBlockFilters()"></app-header>
+
+<app-filters 
+  #filters 
+  (sortVideosByDate)="search.sortVideosByDate($event)"
+  (sortVideosByCountView)="search.sortVideoByCountView($event)"
+  (sortVideosByKeyWords)="search.sortVideosByKeyWords($event)">
+</app-filters>
+
+<app-search #search></app-search>

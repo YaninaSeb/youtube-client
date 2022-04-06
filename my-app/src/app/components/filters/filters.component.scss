@@ -1,0 +1,56 @@
+.block_filters {
+  width: 100%;
+  padding: 10px;
+  background-color: #E5E5E5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  }
+
+.title_filters {
+  color: #929292;
+  margin-right: 25px;
+}
+
+.block_filters button {
+  color: #2F80ED;
+  border: none;
+  background: none;
+  margin-right: 0px;
+  cursor: pointer;
+}
+
+.block_filters label {
+  color: #2F80ED;
+}
+
+#filters_by_word {
+  width: 150px;
+  margin-left: 10px;
+  padding: 5px;
+  color: #929292;
+  border: none
+}
+
+.icons {
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.desc {
+  width: 10px;
+  height: 10px;
+  background: url('../../../assets/svg/icons_order.png');
+  background-size: contain;
+  transform: rotate(180deg);
+} 
+.asc {
+  width: 10px;
+  height: 10px;
+  background: url('../../../assets/svg/icons_order.png');
+  background-size: contain;
+} 
