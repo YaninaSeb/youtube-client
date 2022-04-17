@@ -55,11 +55,24 @@
   .profile-img {
     height: 28px;
     width: 28px;
-    background: url('../../../../assets/svg/Subtract.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
     border: none;
     margin-left: 10px;
     cursor: pointer;
+
+    // background: url('../../../../assets/img/log_in.png');
+    // background-size: contain;
+    // background-repeat: no-repeat;
   }
+}
+
+.login {
+  background: url('../../../../assets/img/log_in.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.logout {
+  background: url('../../../../assets/img/log_out.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }

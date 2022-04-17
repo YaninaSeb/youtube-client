@@ -18,7 +18,7 @@ export class FiltersComponent implements OnInit {
   ngOnInit(): void {
     this.isShowFilterSubscription = this.filterService.showFilters$.subscribe((isShow) => {
       this.isShowFilter = isShow;
-    })
+    });
   }
 
   sortByDate(): void {

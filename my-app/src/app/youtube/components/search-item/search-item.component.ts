@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ISearchItem } from '../../models/search-response.model';
 
 @Component({
@@ -8,6 +7,6 @@ import { ISearchItem } from '../../models/search-response.model';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent {
-  @Input() onecard!: ISearchItem
+  @Input() onecard!: ISearchItem;
 
 }

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ISearchItem } from '../../models/search-response.model';
 import { SearchService } from '../../services/search.service';
@@ -17,13 +17,14 @@ export class DetailsCardComponent implements OnInit {
   
   private idSubscription!: Subscription;
 
-  constructor(private activateRoute: ActivatedRoute, private searchService: SearchService) {}
+  constructor(private activateRoute: ActivatedRoute, private searchService: SearchService, private router: Router) {}
 
   ngOnInit(): void {
     this.idSubscription = this.activateRoute.params.subscribe((params) => {
       this.id = params['id'];
-      this.currentCard = <ISearchItem>this.searchService.getCardById(this.id)
-    })
+      this.currentCard = <ISearchItem> this.searchService.getCardById(this.id);
+      if (!this.currentCard) this.router.navigate(['/error']);
+    });
   }
 
 }

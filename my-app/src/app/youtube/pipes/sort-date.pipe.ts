@@ -1,13 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ISearchItem } from '../models/search-response.model';
-import { FilterService } from '../services/filter.service';
 
 @Pipe({
   name: 'sortDate'
 })
 export class SortDatePipe implements PipeTransform {
-
-  constructor() {}
 
   transform(value: ISearchItem[], order: string): ISearchItem[] {
     let result: ISearchItem[] = [];

@@ -23,24 +23,24 @@ export class FilterService {
 
 
   showFilters() {
-    const visibility = !this.showFilters$$.value
-    this.showFilters$$.next(visibility)
+    const visibility = !this.showFilters$$.value;
+    this.showFilters$$.next(visibility);
   }
 
   sortByDate() {
     this.sortOptions.orderByDate = this.sortOptions.orderByDate === 'desc' ? 'asc' : 'desc';
     this.sortOptions.orderByCountView = '';
-    this.sortOptions$$.next(this.sortOptions)
+    this.sortOptions$$.next(this.sortOptions);
   }
 
   sortByCountView() {
     this.sortOptions.orderByCountView = this.sortOptions.orderByCountView === 'desc' ? 'asc' : 'desc';
     this.sortOptions.orderByDate = '';
-    this.sortOptions$$.next(this.sortOptions)
+    this.sortOptions$$.next(this.sortOptions);
   }
 
   sortByWords(e: Event) {
     this.sortOptions.keyWords = <string>(e.target as HTMLInputElement).value;
-    this.sortOptions$$.next(this.sortOptions)
+    this.sortOptions$$.next(this.sortOptions);
   }
 }

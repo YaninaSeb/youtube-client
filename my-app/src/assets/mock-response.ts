@@ -1,4 +1,4 @@
-import { ISearch } from "src/app/youtube/models/search-response.model";
+import { ISearch } from 'src/app/youtube/models/search-response.model';
 
 export const youTubeResponse: ISearch = {
   'kind': 'youtube#videoListResponse',

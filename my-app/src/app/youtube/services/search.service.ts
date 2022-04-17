@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ISearchItem } from '../models/search-response.model';
 import { youTubeResponse } from '../../../assets/mock-response';
 
@@ -11,7 +11,7 @@ export class SearchService {
 
   videos$ = this.videos$$.asObservable();
 
-  mockResponse: ISearchItem[] = []
+  mockResponse: ISearchItem[] = [];
 
 
   constructor() {
@@ -24,7 +24,7 @@ export class SearchService {
   }
 
   getCardById(id: string): ISearchItem | undefined{ 
-    return this.mockResponse.find((elem) => elem.id === id)
+    return this.mockResponse.find((elem) => elem.id === id);
   }
 
   

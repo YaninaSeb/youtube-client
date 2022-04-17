@@ -13,8 +13,8 @@
   <button class="btn-settings" (click)="onFilters()"></button>
 
   <div class="container-profile">
-    <a class="profile-link"><span>Your Name</span></a>
-    <button class="profile-img"></button>
+    <div #profile class="profile-name">{{ userName() }}</div>
+    <button class="profile-img" (click)="logout()" [ngClass]="{ login: !loginService.currentUser, logout: loginService.currentUser }"> </button>
   </div>
 
 </div>

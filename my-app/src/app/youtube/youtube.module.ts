@@ -14,8 +14,8 @@ import { DetailsCardComponent } from './components/details-card/details-card.com
 
 const routes: Routes = [
   { path: '', component: SearchComponent },
-  { path: ':id', component: DetailsComponent },
-]
+  { path: ':id', component: DetailsComponent }
+];
 
 @NgModule({
   declarations: [
