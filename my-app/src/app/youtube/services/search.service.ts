@@ -22,5 +22,4 @@ export class SearchService {
     return this.mockResponse.find((elem) => elem.id === id);
   }
 
-  
 }

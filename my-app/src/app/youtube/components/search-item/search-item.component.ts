@@ -6,6 +6,6 @@ import { ISearchItem } from '../../models/search-response.model';
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss']
 })
-export class SearchItemComponent {
+export class SearchItemComponent  {
   @Input() onecard!: ISearchItem;
 }

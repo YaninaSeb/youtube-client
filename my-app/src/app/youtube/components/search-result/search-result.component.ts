@@ -15,7 +15,7 @@ export class SearchResultComponent implements OnInit {
 
   allCardsSubscription!: Subscription;
 
-  constructor(public searchService: SearchService, public filterService: FilterService) {}
+  constructor(public searchService: SearchService, public filterService: FilterService) { }
 
   ngOnInit(): void {
     this.allCardsSubscription = this.searchService.videos$.subscribe((data) => {
@@ -23,5 +23,6 @@ export class SearchResultComponent implements OnInit {
     });
     this.searchService.getAllCards();
   }
+
 
 }

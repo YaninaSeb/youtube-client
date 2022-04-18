@@ -13,8 +13,8 @@ import { FiltersComponent } from './components/filters/filters.component';
 import { DetailsCardComponent } from './components/details-card/details-card.component';
 
 const routes: Routes = [
-  { path: '', component: SearchComponent },
-  { path: ':id', component: DetailsComponent }
+  { path: '', component: SearchComponent, pathMatch: 'full' },
+  { path: ':id', component: DetailsComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
