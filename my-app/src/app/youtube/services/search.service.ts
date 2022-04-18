@@ -13,11 +13,6 @@ export class SearchService {
 
   mockResponse: ISearchItem[] = [];
 
-
-  constructor() {
-    this.getAllCards();
-  }
-
   getAllCards(): void {
     this.mockResponse = Array.from(youTubeResponse.items);
     this.videos$$.next(this.mockResponse);

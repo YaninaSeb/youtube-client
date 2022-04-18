@@ -1,5 +1,5 @@
 export type User = {
-    name: string,
-    password: string,
-    token: number
-}
+  name: string,
+  password: string,
+  token: number
+};

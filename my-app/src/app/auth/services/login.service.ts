@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { User } from '../models/login.model';
 
 @Injectable({
@@ -8,18 +7,26 @@ import { User } from '../models/login.model';
 })
 export class LoginService {
 
-  currentUser!: User | null;
+  currentUser = this.getUser();
 
   constructor(private router: Router) {}
 
-  setUser(user: User): void {
-    this.currentUser = user;
-    localStorage.setItem('USER', JSON.stringify(user));
+  setUser(newUser: User): void {
+    this.currentUser = newUser;
+    localStorage.setItem('USER', JSON.stringify(this.currentUser));
     this.router.navigate(['/search']);
   }
 
+  getUser() {
+    const user = localStorage.getItem('USER');
+    if (user) {
+      return JSON.parse(user) as User;
+    }
+    return null;
+  }
+
   getUsername(): string | undefined {
-    return this.currentUser?.name
+    return this.currentUser?.name;
   }
 
   removeUser() {

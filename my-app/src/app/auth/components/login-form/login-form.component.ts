@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/login.model';
@@ -17,9 +17,8 @@ export class LoginFormComponent {
       name: form.value.name,
       password: form.value.password,
       token: Date.now()
-    }
+    };
     this.loginService.setUser(user);
   }
-
 
 }

@@ -23,7 +23,7 @@ export class DetailsCardComponent implements OnInit {
     this.idSubscription = this.activateRoute.params.subscribe((params) => {
       this.id = params['id'];
       this.currentCard = <ISearchItem> this.searchService.getCardById(this.id);
-      if (!this.currentCard) this.router.navigate(['/error']);
+      // if (!this.currentCard) this.router.navigate(['/error']);
     });
   }
 

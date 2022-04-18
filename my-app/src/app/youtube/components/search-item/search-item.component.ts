@@ -8,5 +8,4 @@ import { ISearchItem } from '../../models/search-response.model';
 })
 export class SearchItemComponent {
   @Input() onecard!: ISearchItem;
-
 }
