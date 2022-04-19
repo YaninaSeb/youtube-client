@@ -24,7 +24,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.allCardsSubscription.unsubscribe()
+    this.allCardsSubscription.unsubscribe();
   }
 
 

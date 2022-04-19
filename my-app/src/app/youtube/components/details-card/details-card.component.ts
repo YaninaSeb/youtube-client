@@ -28,7 +28,7 @@ export class DetailsCardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.idSubscription.unsubscribe()
+    this.idSubscription.unsubscribe();
   }
 
 }

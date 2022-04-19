@@ -19,7 +19,7 @@
 
 form {
   label {
-    font-size: 14px;
+    font-size: 16px;
     color: #828282;
   }
   input {
@@ -42,4 +42,17 @@ form {
     margin: 20px 0 20px 180px;
     cursor: pointer;
   }
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+input.ng-touched.ng-valid {
+  border:1px solid green;
+}
+
+.alert {
+  padding-bottom: 20px;
+  font-size: 14px;
+  color: red;
 }
