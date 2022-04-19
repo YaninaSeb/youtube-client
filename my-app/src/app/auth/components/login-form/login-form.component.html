@@ -1,0 +1,17 @@
+<div class="container-login-form">
+  <h1 class="login-form_title">Login</h1>
+
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="login-form_name">
+      <label for="name">name</label>
+      <input #name ngModel name="name" type="text" required>
+    </div>
+  
+    <div class="login-form_password">
+      <label for="password">password</label>
+      <input #password ngModel name="password" type="password" required>
+    </div>
+  
+    <button type="submit" class="btn-login" [disabled]="myForm.invalid">Login</button>
+  </form>
+</div>
