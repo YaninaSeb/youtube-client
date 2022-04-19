@@ -17,7 +17,7 @@ export class HeaderComponent {
   ) { }
 
   onSearch(): void {
-    this.searchService.getAllCards();
+    this.searchService.getCards();
   }
 
   onFilters(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ISearchItem } from '../../models/search-response.model';
 import { FilterService } from '../../services/filter.service';
@@ -9,7 +9,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.scss']
 })
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent implements OnInit, OnDestroy {
 
   allCards: ISearchItem[] = [];
 
@@ -21,7 +21,10 @@ export class SearchResultComponent implements OnInit {
     this.allCardsSubscription = this.searchService.videos$.subscribe((data) => {
       this.allCards = data;
     });
-    this.searchService.getAllCards();
+  }
+
+  ngOnDestroy(): void {
+    this.allCardsSubscription.unsubscribe()
   }
 
 
