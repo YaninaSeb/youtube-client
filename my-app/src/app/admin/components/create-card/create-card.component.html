@@ -1,0 +1,63 @@
+<div class="container-create-card">
+    <h1 class="create-card">Create new card</h1>
+  
+    <form [formGroup]="createCardForm" (ngSubmit)="onSubmitCreateCard(createCardForm)">
+      <div class="create-card_title">
+        <label>Title</label>
+        <input formControlName="titleCard" type="text">
+        <div class="alert" *ngIf="_title.errors?.['required'] && _title.touched">
+          Please enter a title
+        </div>
+        <div class="alert" *ngIf="_title.errors?.['minlength']">
+          The title is too short
+        </div>
+        <div class="alert" *ngIf="_title.errors?.['maxlength']">
+          The title is too long
+        </div>
+      </div>
+    
+      <div class="create-card_description">
+        <label>Description</label>
+        <input formControlName="descriptionCard" type="text">
+        <div class="alert" *ngIf="_description.errors?.['maxlength']">
+          The description is too long
+        </div>
+      </div>
+
+      <div class="create-card_img">
+        <label>Img</label>
+        <input formControlName="imgCard" type="url">
+        <div class="alert" *ngIf="_img.errors?.['required'] && _img.touched">
+          Please enter a link to the image
+        </div>
+        <div class="alert" *ngIf="_img.errors?.['pattern']">
+          The image link is invalid
+        </div>
+      </div>
+    
+      <div class="create-card_video">
+        <label>Link video</label>
+        <input formControlName="linkVideoCard" type="url">
+        <div class="alert" *ngIf="_linkVideo.errors?.['required'] && _linkVideo.touched">
+          Please enter a link to the video
+        </div>
+        <div class="alert" *ngIf="_linkVideo.errors?.['pattern']">
+          The video link is invalid
+        </div>
+      </div>
+
+      <div class="create-card_date">
+        <label>Creation date</label>
+        <input formControlName="creationDateCard" type="date">
+        <div class="alert" *ngIf="_creationDate.errors?.['required'] && _creationDate.touched">
+          Please enter a creation date
+        </div>
+        <div class="alert" *ngIf="_creationDate.errors?.['date']">
+          The date is invalid
+        </div>
+      </div>
+    
+      <button type="submit" class="btn-create_card" [disabled]="createCardForm.invalid">Create card</button>
+    </form>
+  </div>
+  

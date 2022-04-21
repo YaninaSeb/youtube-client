@@ -31,6 +31,13 @@ export class LoginFormComponent implements OnInit{
     return null;
   }
 
+  get _mail() {
+    return this.loginForm.controls['userMail'] as FormControl;
+  }
+
+  get _password() {
+    return this.loginForm.controls['userPassword'] as FormControl;
+  }
 
   onSubmit() {
     const user: User = {

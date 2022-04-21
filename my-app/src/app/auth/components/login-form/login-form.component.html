@@ -5,37 +5,28 @@
     <div class="login-form_name">
       <label>mail</label>
       <input formControlName="userMail"  type="text">
-
       <div class="alert"
-        *ngIf="loginForm.controls['userMail'].errors?.['required'] && 
-          loginForm.controls['userMail'].touched">
+        *ngIf="_mail.errors?.['required'] && _mail.touched">
         Please enter a login email
       </div>
-
       <div class="alert"
-        *ngIf="(loginForm.controls['userMail']).errors?.['email'] && 
-          loginForm.controls['userMail'].touched">
+        *ngIf="_mail.errors?.['email'] && _mail.touched">
         The login email is invalid
       </div>
     </div>
   
     <div class="login-form_password">
       <label>password</label>
+      <span class="help-info">(uppercase and lowercase letters. numbers, !/@/#/?)</span>
       <input formControlName="userPassword" type="password">
-
       <div class="alert"
-        *ngIf="loginForm.controls['userPassword'].errors?.['required'] && 
-          loginForm.controls['userPassword'].touched">
+        *ngIf="_password.errors?.['required'] && _password.touched">
         Please enter a password 
       </div>
-
       <div class="alert"
-        *ngIf="loginForm.controls['userPassword'].errors?.['userPassword'] && 
-          loginForm.controls['userPassword'].touched && 
-          !loginForm.controls['userPassword'].errors?.['required']">
+        *ngIf="_password.errors?.['userPassword'] && _password.touched && !_password.errors?.['required']">
         Your password isn't strong enough 
       </div>
-
     </div>
   
     <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Login</button>

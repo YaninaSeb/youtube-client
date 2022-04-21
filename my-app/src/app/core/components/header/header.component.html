@@ -1,18 +1,24 @@
 <div class="header">
-  <div class="logo">
-    <a routerLink="/search"><img src="../../../../assets/svg/logo.svg" alt="logo"></a>
-  </div>
-
-  <div class="container-input_search">
-    <input class="input-search" type="text" placeholder="What do you want to find out?">
-    <button class="btn-search" (click)="onSearch()">search</button>
-  </div>
-
-  <button class="btn-settings" (click)="onFilters()"></button>
 
   <div class="container-profile">
+    <div class="profile_admin"><a routerLink="/admin"><img src="../../../../assets/svg/Subtract.svg"></a></div>
     <div #profile class="profile-name">{{ userName() }}</div>
-    <button class="profile-img" (click)="logout()" [ngClass]="{ login: !loginService.currentUser, logout: loginService.currentUser }"> </button>
   </div>
+
+  <div class="container-search">
+    <div class="logo">
+      <a routerLink="/search"><img src="../../../../assets/svg/logo.svg" alt="logo"></a>
+    </div>
+
+    <div class="container-input_search">
+      <input class="input-search" type="text" placeholder="What do you want to find out?">
+      <button class="btn-search" (click)="onSearch()">search</button>
+    </div>
+
+    <button class="btn-settings" (click)="onFilters()"></button>
+
+  </div>
+
+  <button class="btn-entry" (click)="logout()" [ngClass]="{ login: !loginService.currentUser, logout: loginService.currentUser }"> </button>
 
 </div>
