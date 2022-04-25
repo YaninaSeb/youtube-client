@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ISearchItem } from '../../models/search-response.model';
@@ -9,7 +9,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './details-card.component.html',
   styleUrls: ['./details-card.component.scss']
 })
-export class DetailsCardComponent implements OnInit {
+export class DetailsCardComponent implements OnInit, OnDestroy {
 
   currentCard!: ISearchItem;
 
@@ -25,6 +25,10 @@ export class DetailsCardComponent implements OnInit {
       this.currentCard = <ISearchItem> this.searchService.getCardById(this.id);
       if (!this.currentCard) this.router.navigate(['/error']);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.idSubscription.unsubscribe();
   }
 
 }

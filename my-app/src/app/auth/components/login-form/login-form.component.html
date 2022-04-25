@@ -1,17 +1,34 @@
 <div class="container-login-form">
   <h1 class="login-form_title">Login</h1>
 
-  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
     <div class="login-form_name">
-      <label for="name">name</label>
-      <input #name ngModel name="name" type="text" required>
+      <label>mail</label>
+      <input formControlName="userMail"  type="text">
+      <div class="alert"
+        *ngIf="_mail.errors?.['required'] && _mail.touched">
+        Please enter a login email
+      </div>
+      <div class="alert"
+        *ngIf="_mail.errors?.['email'] && _mail.touched">
+        The login email is invalid
+      </div>
     </div>
   
     <div class="login-form_password">
-      <label for="password">password</label>
-      <input #password ngModel name="password" type="password" required>
+      <label>password</label>
+      <span class="help-info">(uppercase and lowercase letters. numbers, !/@/#/?)</span>
+      <input formControlName="userPassword" type="password">
+      <div class="alert"
+        *ngIf="_password.errors?.['required'] && _password.touched">
+        Please enter a password 
+      </div>
+      <div class="alert"
+        *ngIf="_password.errors?.['userPassword'] && _password.touched && !_password.errors?.['required']">
+        Your password isn't strong enough 
+      </div>
     </div>
   
-    <button type="submit" class="btn-login" [disabled]="myForm.invalid">Login</button>
+    <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Login</button>
   </form>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FilterService } from '../../services/filter.service';
 
@@ -7,7 +7,7 @@ import { FilterService } from '../../services/filter.service';
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent implements OnInit, OnDestroy {
 
   isShowFilter!: boolean;
 
@@ -19,6 +19,10 @@ export class FiltersComponent implements OnInit {
     this.isShowFilterSubscription = this.filterService.showFilters$.subscribe((isShow) => {
       this.isShowFilter = isShow;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.isShowFilterSubscription.unsubscribe();
   }
 
   sortByDate(): void {
