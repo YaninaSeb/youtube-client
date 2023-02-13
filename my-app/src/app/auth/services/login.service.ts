@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/login.model';
 
 @Injectable({
@@ -7,32 +8,19 @@ import { User } from '../models/login.model';
 })
 export class LoginService {
 
-  currentUser = this.getUser();
+  isUserLogged = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router) {}
 
-  setUser(newUser: User): void {
-    this.currentUser = newUser;
-    localStorage.setItem('USER', JSON.stringify(this.currentUser));
+  login(user: User) {
+    localStorage.setItem('userName', user.name);
+    this.isUserLogged.next(true);
     this.router.navigate(['/search']);
   }
 
-  getUser() {
-    const user = localStorage.getItem('USER');
-    if (user) {
-      return JSON.parse(user) as User;
-    }
-    return null;
-  }
-
-  getUsername(): string | undefined {
-    return this.currentUser?.name;
-  }
-
-  removeUser() {
-    localStorage.removeItem('USER');
-    this.currentUser = null;
+  logout() {
+    localStorage.removeItem('userName');
+    this.isUserLogged.next(false);
     this.router.navigate(['/login']);
   }
-
 }

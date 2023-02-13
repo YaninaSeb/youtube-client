@@ -11,13 +11,17 @@ import { SearchService } from 'src/app/youtube/services/search.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  userName = '';
+
+  isVisibilityUserInfo = false;
+
   searchSubject = new Subject<string>();
 
-  searchSubscription?: Subscription;
+  searchSubscription!: Subscription;
 
   constructor(
-    private searchService: SearchService, 
-    private filterService: FilterService, 
+    private searchService: SearchService,
+    private filterService: FilterService,
     public loginService: LoginService
   ) { }
 
@@ -29,27 +33,33 @@ export class HeaderComponent implements OnInit, OnDestroy {
         distinctUntilChanged()
       )
       .subscribe(() => this.searchService.getCards());
+
+    this.loginService.isUserLogged.subscribe((isLogged) => {
+      if (isLogged) {
+        this.userName = localStorage.getItem('userName')!;
+        this.isVisibilityUserInfo = true;
+      } else {
+        this.userName = '';
+        this.isVisibilityUserInfo = false;
+      }
+    });
   }
 
   onSearch(e: Event): void {
     let value = (<HTMLInputElement>e.target).value;
-    this.searchSubject.next(value.trim());
+    this.searchSubject.next(value);
   }
 
   onFilters(): void {
     this.filterService.showFilters();
   }
 
-  userName(): string {
-    return this.loginService.getUsername() || '';
-  }
-
   logout(): void {
-    this.loginService.removeUser();
+    this.loginService.logout();
   }
 
   ngOnDestroy(): void {
-    this.searchSubscription?.unsubscribe();
+    this.searchSubscription!.unsubscribe();
   }
 
 }
