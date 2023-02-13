@@ -11,8 +11,11 @@
     </div>
 
     <div class="container-input_search">
-      <input class="input-search" type="text" placeholder="What do you want to find out?">
-      <button class="btn-search" (click)="onSearch()">search</button>
+      <input
+        type="search"
+        class="input-search" 
+        placeholder="What do you want to find out?"
+        (input)="onSearch($event)">
     </div>
 
     <button class="btn-settings" (click)="onFilters()"></button>

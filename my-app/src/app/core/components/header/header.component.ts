@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, filter, Subject, Subscription } from 'rxjs';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { FilterService } from 'src/app/youtube/services/filter.service';
 import { SearchService } from 'src/app/youtube/services/search.service';
@@ -8,7 +9,11 @@ import { SearchService } from 'src/app/youtube/services/search.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
+
+  searchSubject = new Subject<string>();
+
+  searchSubscription?: Subscription;
 
   constructor(
     private searchService: SearchService, 
@@ -16,8 +21,19 @@ export class HeaderComponent {
     public loginService: LoginService
   ) { }
 
-  onSearch(): void {
-    this.searchService.getCards();
+  ngOnInit(): void {
+    this.searchSubscription = this.searchSubject
+      .pipe(
+        filter((str) => str.length >= 3),
+        debounceTime(1000),
+        distinctUntilChanged()
+      )
+      .subscribe(() => this.searchService.getCards());
+  }
+
+  onSearch(e: Event): void {
+    let value = (<HTMLInputElement>e.target).value;
+    this.searchSubject.next(value.trim());
   }
 
   onFilters(): void {
@@ -30,6 +46,10 @@ export class HeaderComponent {
 
   logout(): void {
     this.loginService.removeUser();
+  }
+
+  ngOnDestroy(): void {
+    this.searchSubscription?.unsubscribe();
   }
 
 }
