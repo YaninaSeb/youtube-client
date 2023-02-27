@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ISearchItem } from '../../models/search-response.model';
+import { IVideoItem } from '../../models/search-response-item.model';
 import { FilterService } from '../../services/filter.service';
 import { SearchService } from '../../services/search.service';
 
@@ -11,7 +11,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class SearchResultComponent implements OnInit, OnDestroy {
 
-  allCards: ISearchItem[] = [];
+  allCards: IVideoItem[] = [];
 
   allCardsSubscription!: Subscription;
 
@@ -26,6 +26,4 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.allCardsSubscription.unsubscribe();
   }
-
-
 }
