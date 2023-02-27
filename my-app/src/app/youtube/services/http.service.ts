@@ -10,25 +10,21 @@ import { catchError, EMPTY, Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private URL = 'https://www.googleapis.com/youtube/v3/search';
-  private KEY_API = 'AIzaSyBvbrusb2C8EgiADs-Q7eYMR3P6c1Ol5wg';
-
-
   constructor(private http: HttpClient) { }
 
-  getVideos(value: string): Observable<any> {
-    return this.http
-      .get<any>(this.URL, { 
-        //headers: {'TOKEN': `API TOKEN` } // эту частьсделать через интерсепторс
-        params: new HttpParams()
-          .set('key', this.KEY_API)
-          .set('type', 'video')
-          .set('part', 'snippet')
-          .set('maxResults', 20)
-          .set('q', value)
-      })
+  getVideos(searchCriterial?: string): Observable<any> {
+    const params = new HttpParams()
+      .set('type', 'video')
+      .set('part', 'snippet')
+      .set('maxResults', 20)
+      .set('q', 'js')
+
+    return this.http.get<any>('', { params })
       .pipe(
-        catchError((error) => EMPTY)
+        catchError((error) => {
+          console.log('ERROR', error);
+          return EMPTY;
+        })
       )
   }
 
