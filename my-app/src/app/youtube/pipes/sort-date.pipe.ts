@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ISearchItem } from '../models/search-response.model';
+import { IVideoItem } from '../models/search-response-item.model';
 
 @Pipe({
   name: 'sortDate'
 })
 export class SortDatePipe implements PipeTransform {
 
-  transform(value: ISearchItem[], order: string): ISearchItem[] {
-    let result: ISearchItem[] = [];
+  transform(value: IVideoItem[], order: string): IVideoItem[] {
+    let result: IVideoItem[] = [];
 
     switch (order) {
-      case 'asc' : { //по возрастанию
+      case 'asc' : {
         result = value.sort( (a, b) => {
           let firstDate = new Date(a.snippet.publishedAt).getTime();
           let secondDate = new Date(b.snippet.publishedAt).getTime();
@@ -21,7 +21,7 @@ export class SortDatePipe implements PipeTransform {
         break;
       }
 
-      case 'desc' : { //по убыванию
+      case 'desc' : {
         result = value.sort( (a, b) => {
           let firstDate = new Date(a.snippet.publishedAt).getTime();
           let secondDate = new Date(b.snippet.publishedAt).getTime();
@@ -39,5 +39,4 @@ export class SortDatePipe implements PipeTransform {
 
     return result;
   }
-
 }

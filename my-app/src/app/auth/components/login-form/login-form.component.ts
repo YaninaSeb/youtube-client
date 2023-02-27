@@ -2,17 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/login.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit{
+export class LoginFormComponent implements OnInit {
+
+  user: User = {
+    name: '',
+    email: '',
+    password: '',
+    token: 0
+  };
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {}
+  constructor(
+    private fb: FormBuilder, 
+    private loginService: LoginService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -40,12 +51,12 @@ export class LoginFormComponent implements OnInit{
   }
 
   onSubmit() {
-    const user: User = {
-      name: this.loginForm.controls['userMail'].value,
-      password: this.loginForm.controls['userPassword'].value,
-      token: Date.now()
-    };
-    this.loginService.setUser(user);
+    this.user.email = this.loginForm.controls['userMail'].value;
+    this.user.name = this.user.email;
+    this.user.password = this.loginForm.controls['userPassword'].value;
+    this.user.token = Date.now();
+
+    this.loginService.login(this.user);
   }
 
 }

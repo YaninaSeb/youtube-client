@@ -1,17 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ISearchItem } from '../models/search-response.model';
+import { IVideoItem } from '../models/search-response-item.model';
 
 @Pipe({
   name: 'sortKeywords'
 })
 export class SortKeywordsPipe implements PipeTransform {
 
-  transform(value: ISearchItem[], order: string): ISearchItem[] {
-    let result: ISearchItem[] = value.filter((item: ISearchItem ) => {
+  transform(value: IVideoItem[], order: string): IVideoItem[] {
+    let result: IVideoItem[] = value.filter((item: IVideoItem ) => {
       return (item.snippet.title.toLowerCase()).includes(order.toLowerCase());
     });
  
     return result;
   }
-
 }

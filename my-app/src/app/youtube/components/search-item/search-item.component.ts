@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ISearchItem } from '../../models/search-response.model';
+import { IVideoItem } from '../../models/search-response-item.model';
 
 @Component({
   selector: 'app-search-item',
@@ -7,5 +7,5 @@ import { ISearchItem } from '../../models/search-response.model';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent  {
-  @Input() onecard!: ISearchItem;
+  @Input() onecard!: IVideoItem;
 }

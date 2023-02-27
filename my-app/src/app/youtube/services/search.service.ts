@@ -1,25 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ISearchItem } from '../models/search-response.model';
-import { youTubeResponse } from '../../../assets/mock-response';
+import { ISearch, ISearchItem } from '../models/search-response.model';
+import { HttpService } from './http.service';
+import { IVideo, IVideoItem } from '../models/search-response-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private videos$$ = new Subject<ISearchItem[]>();
+  videos$$ = new Subject<IVideoItem[]>();
 
   videos$ = this.videos$$.asObservable();
 
-  mockResponse: ISearchItem[] = [];
+  response: IVideoItem[] = [];
 
-  getCards(): void {
-    this.mockResponse = Array.from(youTubeResponse.items);
-    this.videos$$.next(this.mockResponse);
+  constructor(private httpService: HttpService) {}
+
+  getCards(inputValue: string): void {
+    this.httpService
+      .getVideos(inputValue)
+      .subscribe((data: ISearch) => {
+        let allId = '';
+        data.items.forEach((elem: ISearchItem) => allId += `,${elem.id.videoId}`);
+
+        this.httpService
+          .getVideoById(allId.slice(1))
+          .subscribe((data: IVideo) => {
+            this.response = data.items;
+            this.videos$$.next(this.response);
+          });
+      });
   }
 
-  getCardById(id: string): ISearchItem | undefined{ 
-    return this.mockResponse.find((elem) => elem.id === id);
+  getCardById(id: string): IVideoItem {
+    return <IVideoItem>this.response.find((video: IVideoItem) => video.id === id)
   }
-
 }
