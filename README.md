@@ -5,7 +5,14 @@
 
 ## Описание проекта
 Это проект по созданию клиентского приложения YouTube (с использованием API YouTube)   
-[Ссылка на репозиторий со всеми частями задания](https://github.com/rolling-scopes-school/tasks/tree/master/tasks/angular)
+[Ссылка на задание. Часть 1](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/intro.md)   
+[Ссылка на задание. Часть 2](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/components-directives-pipes.md)   
+[Ссылка на задание. Часть 3](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/modules-services-routing.md)   
+[Ссылка на задание. Часть 4](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/rxjs-observables-http.md)   
+[Ссылка на задание. Часть 5](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/forms.md)   
+[Ссылка на задание. Часть 6](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/NgRX.md)   
+[Ссылка на задание. Часть 7](https://github.com/rolling-scopes-school/tasks/blob/master/angular/modules/unit-test/README-RU.md)   
+
 
 ## Функциональность:
 - Авторизация пользователя (в противном случае переход на другие страницы запрещен)
