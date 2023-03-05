@@ -10,7 +10,11 @@ export class LoginService {
 
   isUserLogged = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    if (localStorage.getItem('userName')) {
+      this.isUserLogged.next(true);
+    }
+  }
 
   login(user: User) {
     localStorage.setItem('userName', user.name);

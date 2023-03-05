@@ -16,11 +16,9 @@ export class FilterService {
 
   showFilters$ = this.showFilters$$.asObservable();
 
-
   private sortOptions$$ = new BehaviorSubject(this.sortOptions);
 
   sortOptions$ = this.sortOptions$$.asObservable();
-
 
   showFilters() {
     const visibility = !this.showFilters$$.value;
