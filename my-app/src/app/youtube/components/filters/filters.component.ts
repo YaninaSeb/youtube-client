@@ -21,10 +21,6 @@ export class FiltersComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.isShowFilterSubscription.unsubscribe();
-  }
-
   sortByDate(): void {
     this.filterService.sortByDate();
   }
@@ -37,4 +33,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
     this.filterService.sortByWords(e);
   }
 
+  ngOnDestroy(): void {
+    this.isShowFilterSubscription.unsubscribe();
+  }
 }

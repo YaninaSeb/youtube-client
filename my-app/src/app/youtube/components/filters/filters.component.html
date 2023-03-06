@@ -1,16 +1,22 @@
-<div class="block_filters" *ngIf="isShowFilter"> 
-  <div class="title_filters">Sorting by:</div>
+<div class="filters" *ngIf="isShowFilter"> 
+  <div class="filters_title">Sorting by:</div>
 
-  <button (click)="sortByDate()">date</button>
-  <div class="icons" 
-    [ngClass]="{desc : filterService.sortOptions.orderByDate === 'desc' , asc : filterService.sortOptions.orderByDate === 'asc'}">
+  <div class="filters_date">
+    <div (click)="sortByDate()">date</div>
+    <div class="icons" 
+      [ngClass]="{desc : filterService.sortOptions.orderByDate === 'desc' , asc : filterService.sortOptions.orderByDate === 'asc'}">
+    </div>
   </div>
   
-  <button (click)="sortByCountView()">count of view</button>
-  <div class="icons"
-    [ngClass]="{desc : filterService.sortOptions.orderByCountView === 'desc' , asc : filterService.sortOptions.orderByCountView === 'asc'}">
+  <div class="filters_view">
+    <div (click)="sortByCountView()">count of view</div>
+    <div class="icons"
+      [ngClass]="{desc : filterService.sortOptions.orderByCountView === 'desc' , asc : filterService.sortOptions.orderByCountView === 'asc'}">
+    </div>
   </div>
-  
-  <label for="filters_by_word">by word or sentence</label>
-  <input (input)="sortByWords($event)" type="text" id="filters_by_word" >
+
+  <div class="filters_key">
+    <label for="filters_by_word">by word or sentence</label>
+    <input (input)="sortByWords($event)" type="text" id="filters_by_word">
+  </div>
 </div>
