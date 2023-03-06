@@ -11,8 +11,6 @@ import { SearchService } from 'src/app/youtube/services/search.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  userName = '';
-
   isVisibilityUserInfo = false;
 
   searchSubject = new Subject<string>();
@@ -35,13 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((data) => this.searchService.getCards(data));
 
     this.loginService.isUserLogged.subscribe((isLogged) => {
-      if (isLogged) {
-        this.userName = localStorage.getItem('userName')!;
-        this.isVisibilityUserInfo = true;
-      } else {
-        this.userName = '';
-        this.isVisibilityUserInfo = false;
-      }
+      this.isVisibilityUserInfo = isLogged ? true : false;
     });
   }
 
@@ -61,5 +53,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.searchSubscription!.unsubscribe();
   }
-
 }

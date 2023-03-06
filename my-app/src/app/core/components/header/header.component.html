@@ -1,28 +1,25 @@
 <div class="header">
-  <div class="container-profile" *ngIf="isVisibilityUserInfo">
-    <div class="profile_admin">
-      <a routerLink="/admin">
-        <img src="../../../../assets/svg/Subtract.svg">
-      </a>
-    </div>
-    <div class="profile-name">{{ userName }}</div>
-  </div>
-
-  <div class="container-search">
-    <div class="logo">
+  <div class="header_logo">
       <a routerLink="/search">
         <img src="../../../../assets/svg/logo.svg" alt="logo">
       </a>
-    </div>
-    <div class="container-input_search">
+  </div>
+
+  <div class="header_search">
+    <div class="header_search-input">
       <input
         type="search"
-        class="input-search" 
+        class="search-input" 
         placeholder="What do you want to find out?"
         (input)="onSearch($event)">
     </div>
-    <button class="btn-settings" (click)="onFilters()"></button>
+    <button class="header_search-setting" (click)="onFilters()"></button>
   </div>
 
-  <button class="btn-entry" (click)="logout()" [ngClass]="{ login: !isVisibilityUserInfo, logout: isVisibilityUserInfo }"> </button>
+  <div *ngIf="!isVisibilityUserInfo; else admin" class="header_login"></div>
+  <ng-template #admin>
+    <div class="header_admin" (click)="logout()">
+      <!-- routerLink="/admin" -->
+    </div>
+  </ng-template>
 </div>
