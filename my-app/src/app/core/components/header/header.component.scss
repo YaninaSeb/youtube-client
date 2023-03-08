@@ -1,7 +1,12 @@
-.header {
+.header_wrap {
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(229, 229, 229);
+}
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

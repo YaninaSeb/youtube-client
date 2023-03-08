@@ -9,7 +9,6 @@ import { SearchComponent } from './pages/search/search.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
-import { FiltersComponent } from './components/filters/filters.component';
 import { DetailsCardComponent } from './components/details-card/details-card.component';
 
 const routes: Routes = [
@@ -27,7 +26,6 @@ const routes: Routes = [
     DetailsComponent,
     SearchResultComponent,
     SearchItemComponent,
-    FiltersComponent,
     DetailsCardComponent
   ],
   imports: [

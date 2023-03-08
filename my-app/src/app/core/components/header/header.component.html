@@ -1,25 +1,31 @@
-<div class="header">
-  <div class="header_logo">
-      <a routerLink="/search">
-        <img src="../../../../assets/svg/logo.svg" alt="logo">
-      </a>
-  </div>
-
-  <div class="header_search">
-    <div class="header_search-input">
-      <input
-        type="search"
-        class="search-input" 
-        placeholder="What do you want to find out?"
-        (input)="onSearch($event)">
+<div class="header_wrap">
+  <div class="header">
+    <div class="header_logo">
+        <a routerLink="/search">
+          <img src="../../../../assets/svg/logo.svg" alt="logo">
+        </a>
     </div>
-    <button class="header_search-setting" (click)="onFilters()"></button>
-  </div>
-
-  <div *ngIf="!isVisibilityUserInfo; else admin" class="header_login"></div>
-  <ng-template #admin>
-    <div class="header_admin" (click)="logout()">
-      <!-- routerLink="/admin" -->
+  
+    <div class="header_search">
+      <div class="header_search-input">
+        <input
+          type="search"
+          class="search-input" 
+          placeholder="What do you want to find out?"
+          (input)="onSearch($event)">
+      </div>
+      <button class="header_search-setting" (click)="onFilters()"></button>
     </div>
-  </ng-template>
+  
+    <div *ngIf="!isVisibilityUserInfo; else admin" class="header_login"></div>
+    <ng-template #admin>
+      <div class="header_admin" (click)="logout()">
+        <!-- routerLink="/admin" -->
+      </div>
+    </ng-template>
+  </div>
+  
+  <div class="filters" *ngIf="isShowFilters">
+    <app-filters></app-filters>
+  </div>
 </div>

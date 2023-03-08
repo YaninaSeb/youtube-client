@@ -13,13 +13,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isVisibilityUserInfo = false;
 
+  isShowFilters = false;
+
   searchSubject = new Subject<string>();
 
   searchSubscription!: Subscription;
 
   constructor(
     private searchService: SearchService,
-    private filterService: FilterService,
     public loginService: LoginService
   ) { }
 
@@ -43,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onFilters(): void {
-    this.filterService.showFilters();
+    this.isShowFilters = !this.isShowFilters;
   }
 
   logout(): void {
