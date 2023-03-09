@@ -20,6 +20,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.6s;
+}
+.header_logo:hover {
+  transform: scale(1.05);
 }
 .header_logo img {
   width: 80px;
@@ -48,6 +52,9 @@
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
+  transition: all 0.5s;
+}
+.header_search-setting:hover {
   cursor: pointer;
 }
 .header_login {
