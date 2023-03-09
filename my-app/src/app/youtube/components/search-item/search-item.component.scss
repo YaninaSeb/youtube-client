@@ -6,8 +6,14 @@
   height: 330px;
   margin: 15px;
   padding: 20px;
-  background-color: #E5E5E5;
+  background-color: rgb(229, 229, 229);
   border-radius: 5px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+  transition: all 0.8s;
+}
+.card:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.7));
 }
 .card-img img {
   width: 223px;
@@ -43,10 +49,10 @@
   color: #FFFFFF;
   border: none;
   margin: 0 auto;
-  cursor: pointer;
   text-align: center;
   line-height: 2;
   text-decoration: none;
+  cursor: pointer;;
 }
 .border_red {
   border-bottom: 5px solid #EB5757;
