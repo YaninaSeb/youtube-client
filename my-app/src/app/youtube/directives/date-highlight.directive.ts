@@ -7,11 +7,9 @@ export class DateHighlightDirective implements OnInit {
 
   @Input() appDateHighlight = '';
 
-  private milisecInWeek = 604800000;
+  private msInMonth = 2678400000;
 
-  private milisecInMonth = 2678400000;
-
-  private milisecInSixMonth = 6 * this.milisecInMonth;
+  private msInSixMonth = 6 * this.msInMonth;
 
   constructor(private el: ElementRef, private renderer2: Renderer2) {}
 
@@ -23,11 +21,10 @@ export class DateHighlightDirective implements OnInit {
     const datePublished = new Date(this.appDateHighlight).getTime();
     const dateNow = Date.now();
     const diferentMilisec = dateNow - datePublished;
-    console.log(diferentMilisec)
     
-    if (diferentMilisec >= this.milisecInSixMonth) {
+    if (diferentMilisec >= this.msInSixMonth) {
       this.renderer2.addClass(this.el.nativeElement, 'border_red');
-    } else if (diferentMilisec >= this.milisecInMonth) {
+    } else if (diferentMilisec >= this.msInMonth) {
       this.renderer2.addClass(this.el.nativeElement, 'border_green');
     } else {
       this.renderer2.addClass(this.el.nativeElement, 'border_blue');
