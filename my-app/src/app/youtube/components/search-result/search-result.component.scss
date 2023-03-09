@@ -3,4 +3,10 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 130px;
+}
+@media (max-width: 580px) {
+  .search-result {
+    margin-top: 21vw;
+  }
 }
