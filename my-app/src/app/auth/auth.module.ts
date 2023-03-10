@@ -4,15 +4,20 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { LoginComponent } from './pages/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent }
+  { path: '', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent}
 ];
 
 @NgModule({
   declarations: [
     LoginFormComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationFormComponent,
+    RegistrationComponent
   ],
   imports: [
     CommonModule,

@@ -7,14 +7,14 @@
     </div>
 
     <div class="details-card_info">
-      <div class="info-title">
+      <div class="info-title">info-description
         <div class="title">{{ currentCard.snippet.title }}</div>
         <div class="date"> {{ currentCard.snippet.publishedAt | date: 'EEEE, MMMM d, y' }} </div>
       </div>
 
       <div class="info-description">
         <span>Description:</span>
-        <p class="description-text">{{ currentCard.snippet.description }}</p>
+        <pre class="description-text">{{ currentCard.snippet.description }}</pre>
       </div>
 
       <div class="details-card_statistics">

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-import { User } from '../../models/login.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
-  user: User = {
-    name: '',
-    email: '',
-    password: '',
-    token: 0
-  };
 
   loginForm!: FormGroup;
 
@@ -51,12 +43,11 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.user.email = this.loginForm.controls['userMail'].value;
-    this.user.name = this.user.email;
-    this.user.password = this.loginForm.controls['userPassword'].value;
-    this.user.token = Date.now();
+    let userMail = this.loginForm.controls['userMail'].value;
+    let userPassword = this.loginForm.controls['userPassword'].value;
 
-    this.loginService.login(this.user);
+    if (userMail === localStorage.getItem('userMail') && userPassword === localStorage.getItem('userPassword')) {
+      this.loginService.login();
+    }
   }
-
 }

@@ -1,4 +1,4 @@
-.container-login-form {
+.registration-form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -11,12 +11,14 @@
   background-color: #F2F2F2;
   border-radius: 5px;
 }
-.login-form_title {
+.registration_title {
   font-size: 24px;
   align-self: flex-start;
 }
-.login-form_name,
-.login-form_password {
+.registration_firstName,
+.registration_lastName,
+.registration_name,
+.registration_password {
   display: flex;
   flex-direction: column;
 }
@@ -53,15 +55,6 @@ form input {
 .btn-registration {
   height: 30px;
   width: 50%;
-  color: #2F80ED;
-  text-align: center;
-  text-decoration: underline;
-  border: none;
-  cursor: pointer;
-}
-.btn-login {
-  height: 30px;
-  width: 50%;
   background-color: #2F80ED;
   color: #FFFFFF;
   text-align: center;
@@ -69,7 +62,16 @@ form input {
   border: none;
   cursor: pointer;
 }
-.btn-login:disabled {
+.btn-login {
+  height: 30px;
+  width: 50%;
+  color: #2F80ED;
+  text-align: center;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+}
+.btn-registration:disabled {
   background-color: rgb(177, 177, 177);
 }
 .help-info {
@@ -88,14 +90,14 @@ input.ng-touched.ng-valid {
 }
 
 @media (max-width: 420px) {
-  .container-login-form {
+  .registration-form {
     gap: 15px;
     width: 300px;
     margin: 0 auto;
     margin-top: calc(130px + 10vh);
     padding: 15px;
   }
-  .login-form_title {
+  .registration_title {
     font-size: 20px;
   }
   form label {

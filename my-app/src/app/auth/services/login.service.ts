@@ -11,19 +11,18 @@ export class LoginService {
   isUserLogged = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router) {
-    if (localStorage.getItem('userName')) {
+    if (localStorage.getItem('userMail')) {
       this.isUserLogged.next(true);
+      this.router.navigate(['/search']);
     }
   }
 
-  login(user: User) {
-    localStorage.setItem('userName', user.name);
+  login() {
     this.isUserLogged.next(true);
     this.router.navigate(['/search']);
   }
 
   logout() {
-    localStorage.removeItem('userName');
     this.isUserLogged.next(false);
     this.router.navigate(['/login']);
   }
