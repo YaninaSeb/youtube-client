@@ -72,6 +72,7 @@ export class RegistrationFormComponent implements OnInit {
   goToLogin() {
     localStorage.setItem('userMail', this.user.mail);
     localStorage.setItem('userPassword', this.user.password);
+    localStorage.setItem('userToken', `${this.user.token}`);
 
     this.router.navigate(['/login']);
   }
