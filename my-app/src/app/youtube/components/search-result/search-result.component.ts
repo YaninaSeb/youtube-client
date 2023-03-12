@@ -11,7 +11,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class SearchResultComponent implements OnInit, OnDestroy {
 
-  allCards: IVideoItem[] = [];
+  allCards: IVideoItem[] = this.searchService.videos$$.value;
 
   allCardsSubscription!: Subscription;
 
