@@ -5,7 +5,10 @@ import { Directive, ElementRef, OnInit, Renderer2, Input } from '@angular/core';
 })
 export class DateHighlightDirective implements OnInit {
 
-  @Input() appDateHighlight = '';
+  @Input() dateVideo!: string;
+
+  @Input() isHighlightArrow?: boolean;
+
 
   private msInMonth = 2678400000;
 
@@ -17,17 +20,35 @@ export class DateHighlightDirective implements OnInit {
     this.defineColor();
   }
 
-  private defineColor() {
-    const datePublished = new Date(this.appDateHighlight).getTime();
+  defineColor() {
+    const datePublished = new Date(this.dateVideo).getTime();
     const dateNow = Date.now();
-    const diferentMilisec = dateNow - datePublished;
-    
-    if (diferentMilisec >= this.msInSixMonth) {
+    const msDifference = dateNow - datePublished;
+
+    if (this.isHighlightArrow === true) {
+      this.defineColorArrow(msDifference);
+    } else {
+      this.defineColorCard(msDifference);
+    }
+  }
+
+  defineColorCard(ms: number) {
+    if (ms >= this.msInSixMonth) {
       this.renderer2.addClass(this.el.nativeElement, 'border_red');
-    } else if (diferentMilisec >= this.msInMonth) {
+    } else if (ms >= this.msInMonth) {
       this.renderer2.addClass(this.el.nativeElement, 'border_green');
     } else {
       this.renderer2.addClass(this.el.nativeElement, 'border_blue');
+    }
+  }
+
+  defineColorArrow(ms: number) {
+    if (ms >= this.msInSixMonth) {
+      this.renderer2.addClass(this.el.nativeElement, 'link_back_red');
+    } else if (ms >= this.msInMonth) {
+      this.renderer2.addClass(this.el.nativeElement, 'link_back_green');
+    } else {
+      this.renderer2.addClass(this.el.nativeElement, 'link_back_blue');
     }
   }
 }

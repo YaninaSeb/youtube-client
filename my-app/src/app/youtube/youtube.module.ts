@@ -26,7 +26,7 @@ const routes: Routes = [
     DetailsComponent,
     SearchResultComponent,
     SearchItemComponent,
-    DetailsCardComponent
+    DetailsCardComponent,
   ],
   imports: [
     CommonModule,
