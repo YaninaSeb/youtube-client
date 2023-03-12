@@ -23,6 +23,11 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     });
   }
 
+  showMoreVideos() {
+    this.searchService.currVideosPage += 1;
+    this.searchService.getCards();
+  }
+
   ngOnDestroy(): void {
     this.allCardsSubscription.unsubscribe();
   }

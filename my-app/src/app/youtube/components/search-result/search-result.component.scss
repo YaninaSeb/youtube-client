@@ -1,4 +1,4 @@
-.search-result {
+.search_result {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -7,8 +7,26 @@
   margin-top: 130px;
   overflow: scroll;
 }
+.search_more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.search_more-btn {
+  width: 240px;
+  height: 40px;
+  margin: 40px;
+  background-color: #2F80ED;
+  border-radius: 5px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
 @media (max-width: 580px) {
-  .search-result {
+  .search_result {
     height: calc(100vh - 21vw);
     margin-top: 21vw;
   }

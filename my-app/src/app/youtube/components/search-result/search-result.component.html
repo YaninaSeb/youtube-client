@@ -1,4 +1,4 @@
-<div class="search-result" *ngIf="allCards.length"> 
+<div class="search_result" *ngIf="allCards.length"> 
   <app-search-item
     *ngFor="let card of (allCards | 
       sortKeywords : filterService.sortOptions.keyWords | 
@@ -6,4 +6,8 @@
       sortView: filterService.sortOptions.orderByCountView )"
     [onecard]="card">
   </app-search-item>
+
+  <div class="search_more">
+    <div class="search_more-btn" (click)="showMoreVideos()">next</div>
+  </div>
 </div>

@@ -15,11 +15,15 @@ export class SearchService {
 
   response: IVideoItem[] = [];
 
+  currVideosPage = 1;
+
+  currSearchCriterion = '';
+
   constructor(private httpService: HttpService) {}
 
-  getCards(inputValue: string): void {
+  getCards(): void {
     this.httpService
-      .getVideos(inputValue)
+      .getVideos(this.currVideosPage, this.currSearchCriterion)
       .subscribe((data: ISearch) => {
         let allId = '';
         data.items.forEach((elem: ISearchItem) => allId += `,${elem.id.videoId}`);

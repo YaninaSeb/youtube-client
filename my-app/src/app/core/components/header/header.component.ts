@@ -31,7 +31,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         debounceTime(1000),
         distinctUntilChanged()
       )
-      .subscribe((data) => this.searchService.getCards(data));
+      .subscribe((data) => {
+        this.searchService.currSearchCriterion = data;
+        this.searchService.getCards()
+      });
 
     this.loginService.isUserLogged.subscribe((isLogged) => {
       this.isVisibilityUserInfo = isLogged ? true : false;
