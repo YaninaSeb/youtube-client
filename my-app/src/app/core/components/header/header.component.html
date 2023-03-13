@@ -19,8 +19,14 @@
   
     <div *ngIf="!isVisibilityUserInfo; else admin" class="header_login"></div>
     <ng-template #admin>
-      <div class="header_admin" (click)="logout()">
-        <!-- routerLink="/admin" -->
+      <div class="header_admin">
+        <div class="profile_wrap">
+          <div class="profile">
+            <div class="profile_name">{{userName}}</div>
+            <div class="profile_admin" routerLink="/admin">Add new card</div>
+            <div class="profile_logout" (click)="logout()">Logout</div>  
+          </div>
+        </div>
       </div>
     </ng-template>
   </div>
@@ -29,3 +35,4 @@
     <app-filters></app-filters>
   </div>
 </div>
+

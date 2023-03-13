@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Subject, Subscription } from 'rxjs';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { FilterService } from 'src/app/youtube/services/filter.service';
 import { SearchService } from 'src/app/youtube/services/search.service';
 
 @Component({
@@ -18,6 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   searchSubject = new Subject<string>();
 
   searchSubscription!: Subscription;
+
+  userName!: string;
 
   constructor(
     private searchService: SearchService,
@@ -39,6 +40,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.loginService.isUserLogged.subscribe((isLogged) => {
       this.isVisibilityUserInfo = isLogged ? true : false;
     });
+
+    this.userName = localStorage.getItem('userName') || '';
   }
 
   onSearch(e: Event): void {

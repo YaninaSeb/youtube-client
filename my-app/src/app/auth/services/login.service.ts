@@ -8,6 +8,8 @@ import { User } from '../models/login.model';
 })
 export class LoginService {
 
+  user!: User;
+
   isUserLogged = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router) {
@@ -17,7 +19,15 @@ export class LoginService {
     }
   }
 
+  setUser(currUser: User) {
+    this.user = currUser;
+    localStorage.setItem('userName', `${this.user.firstName} ${this.user.lastName}`);
+    localStorage.setItem('userMail', this.user.mail);
+    localStorage.setItem('userPassword', this.user.password);
+  }
+
   login() {
+    localStorage.setItem('userToken', Date.now().toString());
     this.isUserLogged.next(true);
     this.router.navigate(['/search']);
   }

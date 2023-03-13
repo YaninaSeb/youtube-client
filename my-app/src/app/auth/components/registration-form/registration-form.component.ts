@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/login.model';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -14,15 +15,15 @@ export class RegistrationFormComponent implements OnInit {
     firstName: '',
     lastName: '',
     mail: '',
-    password: '',
-    token: 0,
+    password: ''
   };
 
   registrationForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder, 
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -65,14 +66,8 @@ export class RegistrationFormComponent implements OnInit {
     this.user.lastName = this.registrationForm.controls['userLastName'].value;
     this.user.mail = this.registrationForm.controls['userMail'].value;
     this.user.password = this.registrationForm.controls['userPassword'].value;
-    this.user.token = Date.now();
-    this.goToLogin();
-  }
 
-  goToLogin() {
-    localStorage.setItem('userMail', this.user.mail);
-    localStorage.setItem('userPassword', this.user.password);
-    localStorage.setItem('userToken', `${this.user.token}`);
+    this.loginService.setUser(this.user);
 
     this.router.navigate(['/login']);
   }
