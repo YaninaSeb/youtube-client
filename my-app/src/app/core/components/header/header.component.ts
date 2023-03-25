@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Subject, Subscription } from 'rxjs';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { FilterService } from 'src/app/youtube/services/filter.service';
 import { SearchService } from 'src/app/youtube/services/search.service';
 
 @Component({
@@ -11,17 +10,18 @@ import { SearchService } from 'src/app/youtube/services/search.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  userName = '';
-
   isVisibilityUserInfo = false;
+
+  isShowFilters = false;
 
   searchSubject = new Subject<string>();
 
   searchSubscription!: Subscription;
 
+  userName!: string;
+
   constructor(
     private searchService: SearchService,
-    private filterService: FilterService,
     public loginService: LoginService
   ) { }
 
@@ -32,17 +32,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
         debounceTime(1000),
         distinctUntilChanged()
       )
-      .subscribe((data) => this.searchService.getCards(data));
+      .subscribe((data) => {
+        this.searchService.currSearchCriterion = data;
+        this.searchService.getCards()
+      });
 
     this.loginService.isUserLogged.subscribe((isLogged) => {
-      if (isLogged) {
-        this.userName = localStorage.getItem('userName')!;
-        this.isVisibilityUserInfo = true;
-      } else {
-        this.userName = '';
-        this.isVisibilityUserInfo = false;
-      }
+      this.isVisibilityUserInfo = isLogged ? true : false;
     });
+
+    this.userName = localStorage.getItem('userName') || '';
   }
 
   onSearch(e: Event): void {
@@ -51,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onFilters(): void {
-    this.filterService.showFilters();
+    this.isShowFilters = !this.isShowFilters;
   }
 
   logout(): void {
@@ -61,5 +60,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.searchSubscription!.unsubscribe();
   }
-
 }

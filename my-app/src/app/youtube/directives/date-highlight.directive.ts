@@ -5,14 +5,14 @@ import { Directive, ElementRef, OnInit, Renderer2, Input } from '@angular/core';
 })
 export class DateHighlightDirective implements OnInit {
 
-  @Input() appDateHighlight = '';
+  @Input() dateVideo!: string;
 
-  private milisecInWeek: number = 7 * 24 * 60 * 60 * 1000;
+  @Input() isHighlightArrow?: boolean;
 
-  private milisecInMonth: number = 30 * 24 * 60 * 60 * 1000;
 
-  private milisecInSixMonth: number = 6 * 30 * 24 * 60 * 60 * 1000;
+  private msInMonth = 2678400000;
 
+  private msInSixMonth = 6 * this.msInMonth;
 
   constructor(private el: ElementRef, private renderer2: Renderer2) {}
 
@@ -20,19 +20,35 @@ export class DateHighlightDirective implements OnInit {
     this.defineColor();
   }
 
-  private defineColor() {
-    const datePublished = new Date(this.appDateHighlight).getTime();
+  defineColor() {
+    const datePublished = new Date(this.dateVideo).getTime();
     const dateNow = Date.now();
-    const diferentMilisec = dateNow - datePublished;
-    
-    if (diferentMilisec > this.milisecInSixMonth) {
-      this.renderer2.addClass(this.el.nativeElement, 'red');
-    } else if (diferentMilisec < this.milisecInMonth && diferentMilisec >= this.milisecInWeek) {
-      this.renderer2.addClass(this.el.nativeElement, 'green');
-    } else if ( diferentMilisec < this.milisecInWeek) {
-      this.renderer2.addClass(this.el.nativeElement, 'blue');
-    }
+    const msDifference = dateNow - datePublished;
 
+    if (this.isHighlightArrow === true) {
+      this.defineColorArrow(msDifference);
+    } else {
+      this.defineColorCard(msDifference);
+    }
   }
 
+  defineColorCard(ms: number) {
+    if (ms >= this.msInSixMonth) {
+      this.renderer2.addClass(this.el.nativeElement, 'border_red');
+    } else if (ms >= this.msInMonth) {
+      this.renderer2.addClass(this.el.nativeElement, 'border_green');
+    } else {
+      this.renderer2.addClass(this.el.nativeElement, 'border_blue');
+    }
+  }
+
+  defineColorArrow(ms: number) {
+    if (ms >= this.msInSixMonth) {
+      this.renderer2.addClass(this.el.nativeElement, 'link_back_red');
+    } else if (ms >= this.msInMonth) {
+      this.renderer2.addClass(this.el.nativeElement, 'link_back_green');
+    } else {
+      this.renderer2.addClass(this.el.nativeElement, 'link_back_blue');
+    }
+  }
 }

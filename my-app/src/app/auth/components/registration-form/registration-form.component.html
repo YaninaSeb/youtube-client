@@ -1,0 +1,55 @@
+<div class="registration-form">
+    <h1 class="registration_title">Registration</h1>
+  
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="registration_firstName">
+        <label>First Name</label>
+        <input formControlName="userFirstName" type="text">
+        <div class="alert"
+          *ngIf="_firstName.errors?.['required'] && _firstName.touched">
+          Please enter a first name
+        </div>
+      </div>
+
+      <div class="registration_lastName">
+        <label>Last Name</label>
+        <input formControlName="userLastName" type="text">
+        <div class="alert"
+          *ngIf="_lastName.errors?.['required'] && _lastName.touched">
+          Please enter a last name
+        </div>
+      </div>
+
+        <div class="registration_mail">
+        <label>mail</label>
+        <input formControlName="userMail" type="text">
+        <div class="alert"
+          *ngIf="_mail.errors?.['required'] && _mail.touched">
+          Please enter a login email
+        </div>
+        <div class="alert"
+          *ngIf="_mail.errors?.['email'] && _mail.touched">
+          The login email is invalid
+        </div>
+      </div>
+    
+      <div class="registration_password">
+        <label>password</label>
+        <span class="help-info">(uppercase and lowercase letters, numbers, !/@/#/?)</span>
+        <input formControlName="userPassword" type="password">
+        <div class="alert"
+          *ngIf="_password.errors?.['required'] && _password.touched">
+          Please enter a password 
+        </div>
+        <div class="alert"
+          *ngIf="_password.errors?.['userPassword'] && _password.touched && !_password.errors?.['required']">
+          Your password isn't strong enough 
+        </div>
+      </div>
+    
+      <div class="btn-entry">
+        <button type="submit" class="btn-registration" [disabled]="registrationForm.invalid">Registration</button>
+        <button type="button" class="btn-login" routerLink="/login">Login</button>
+      </div>
+    </form>
+</div>

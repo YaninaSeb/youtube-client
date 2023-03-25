@@ -12,20 +12,9 @@ export class FilterService {
     keyWords:''
   };
 
-  private showFilters$$ = new BehaviorSubject<boolean>(false);
-
-  showFilters$ = this.showFilters$$.asObservable();
-
-
   private sortOptions$$ = new BehaviorSubject(this.sortOptions);
 
   sortOptions$ = this.sortOptions$$.asObservable();
-
-
-  showFilters() {
-    const visibility = !this.showFilters$$.value;
-    this.showFilters$$.next(visibility);
-  }
 
   sortByDate() {
     this.sortOptions.orderByDate = this.sortOptions.orderByDate === 'desc' ? 'asc' : 'desc';

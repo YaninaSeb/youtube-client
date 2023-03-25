@@ -1,7 +1,7 @@
 <div class="container-details" *ngIf="currentCard">
-  <div class="link_back"><a routerLink="/search">&#5176;</a></div>
+  <div class="details-card" appDateHighlight [dateVideo]="currentCard.snippet.publishedAt">
+    <div class="link_back" appDateHighlight [dateVideo]="currentCard.snippet.publishedAt" [isHighlightArrow]="true"><a routerLink="/search">&#5176;</a></div>
 
-  <div class="details-card" [appDateHighlight]="currentCard.snippet.publishedAt">
     <div class="details-card_img">
       <img src="{{ currentCard.snippet.thumbnails.medium.url }}" alt="details-card">
     </div>
@@ -14,7 +14,7 @@
 
       <div class="info-description">
         <span>Description:</span>
-        <p class="description-text">{{ currentCard.snippet.description }}</p>
+        <pre class="description-text">{{ currentCard.snippet.description }}</pre>
       </div>
 
       <div class="details-card_statistics">

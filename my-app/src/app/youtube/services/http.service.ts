@@ -9,13 +9,15 @@ import { IVideo } from '../models/search-response-item.model';
 })
 export class HttpService {
 
+  private LIMIT_VIDEOS = 10;
+
   constructor(private http: HttpClient) { }
 
-  getVideos(searchCriterial: string): Observable<ISearch> {
+  getVideos(page: number, searchCriterial: string): Observable<ISearch> {
     const params = new HttpParams()
       .set('type', 'video')
       .set('part', 'snippet')
-      .set('maxResults', 20)
+      .set('maxResults', page * this.LIMIT_VIDEOS)
       .set('q', searchCriterial)
 
     return this.http.get<ISearch>('search', { params })
@@ -40,5 +42,4 @@ export class HttpService {
         })
       );
   }
-
 }

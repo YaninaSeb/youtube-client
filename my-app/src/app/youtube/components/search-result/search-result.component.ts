@@ -11,7 +11,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class SearchResultComponent implements OnInit, OnDestroy {
 
-  allCards: IVideoItem[] = [];
+  allCards: IVideoItem[] = this.searchService.videos$$.value;
 
   allCardsSubscription!: Subscription;
 
@@ -21,6 +21,11 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     this.allCardsSubscription = this.searchService.videos$.subscribe((data) => {
       this.allCards = data;
     });
+  }
+
+  showMoreVideos() {
+    this.searchService.currVideosPage += 1;
+    this.searchService.getCards();
   }
 
   ngOnDestroy(): void {

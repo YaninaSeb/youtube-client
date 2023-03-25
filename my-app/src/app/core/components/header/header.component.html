@@ -1,28 +1,38 @@
-<div class="header">
-  <div class="container-profile" *ngIf="isVisibilityUserInfo">
-    <div class="profile_admin">
-      <a routerLink="/admin">
-        <img src="../../../../assets/svg/Subtract.svg">
-      </a>
+<div class="header_wrap">
+  <div class="header">
+    <div class="header_logo">
+        <a routerLink="/search">
+          <img src="../../../../assets/svg/logo.svg" alt="logo">
+        </a>
     </div>
-    <div class="profile-name">{{ userName }}</div>
+  
+    <div class="header_search">
+      <div class="header_search-input">
+        <input
+          type="search"
+          class="search-input" 
+          placeholder="What do you want to find out?"
+          (input)="onSearch($event)">
+      </div>
+      <button class="header_search-setting" (click)="onFilters()"></button>
+    </div>
+  
+    <div *ngIf="!isVisibilityUserInfo; else admin" class="header_login"></div>
+    <ng-template #admin>
+      <div class="header_admin">
+        <div class="profile_wrap">
+          <div class="profile">
+            <div class="profile_name">{{userName}}</div>
+            <div class="profile_admin" routerLink="/admin">Add new card</div>
+            <div class="profile_logout" (click)="logout()">Logout</div>  
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
-
-  <div class="container-search">
-    <div class="logo">
-      <a routerLink="/search">
-        <img src="../../../../assets/svg/logo.svg" alt="logo">
-      </a>
-    </div>
-    <div class="container-input_search">
-      <input
-        type="search"
-        class="input-search" 
-        placeholder="What do you want to find out?"
-        (input)="onSearch($event)">
-    </div>
-    <button class="btn-settings" (click)="onFilters()"></button>
+  
+  <div class="filters" *ngIf="isShowFilters">
+    <app-filters></app-filters>
   </div>
-
-  <button class="btn-entry" (click)="logout()" [ngClass]="{ login: !isVisibilityUserInfo, logout: isVisibilityUserInfo }"> </button>
 </div>
+

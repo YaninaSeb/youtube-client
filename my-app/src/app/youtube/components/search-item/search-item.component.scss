@@ -1,65 +1,65 @@
 .card {
-    width: 260px;
-    height: 330px;
-    margin: 15px;
-    padding: 20px;
-    
-    background-color: #E5E5E5;
-    border-radius: 5px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .card-img img {
-    width: 223px;
-    height: 123px;
-    margin: 0 auto;
-  }
-  
-  .card-statistic {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .card-statistic div {
-    display: flex;
-    flex-direction: row;
-    font-size: 12px;
-  }
-  .card-statistic span {
-    margin-left: 4px;
-  }
-  
-  .card-title {
-    height: 60px;
-    font-size: 18px;
-    text-align: right;
-    font-weight: bold;
-    color: #4F4F4F;
-  }
-  
-  .card-more_link {
-    width: 120px;
-    height: 32px;
-    border-radius: 5px;
-    background-color: #2F80ED;
-    color: #FFFFFF;
-    border: none;
-    margin: 0 auto;
-    cursor: pointer;
-    text-align: center;
-    line-height: 2;
-    text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 260px;
+  height: 330px;
+  margin: 15px;
+  padding: 20px;
+  background-color: rgb(229, 229, 229);
+  border-radius: 5px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+  transition: all 0.8s;
 }
-
-.red {
+.card:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.7));
+}
+.card-img img {
+  width: 223px;
+  height: 123px;
+  margin: 0 auto;
+}
+.card-statistic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card-statistic div {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+}
+.card-statistic span {
+  margin-left: 4px;
+}
+.card-title {
+  height: 65px;
+  font-size: 18px;
+  text-align: right;
+  font-weight: bold;
+  color: #4F4F4F;
+  overflow: scroll;
+}
+.card-more_link {
+  width: 120px;
+  height: 32px;
+  border-radius: 5px;
+  background-color: #2F80ED;
+  color: #FFFFFF;
+  border: none;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 2;
+  text-decoration: none;
+  cursor: pointer;;
+}
+.border_red {
   border-bottom: 5px solid #EB5757;
 }
-.green {
+.border_green {
   border-bottom: 5px solid #27AE60;
 }
-.blue {
+.border_blue {
   border-bottom: 5px solid #2F80ED;
 }

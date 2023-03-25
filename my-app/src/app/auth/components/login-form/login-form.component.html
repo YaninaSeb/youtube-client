@@ -1,7 +1,7 @@
 <div class="container-login-form">
   <h1 class="login-form_title">Login</h1>
 
-  <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="login-form_name">
       <label>mail</label>
       <input formControlName="userMail"  type="text">
@@ -17,7 +17,7 @@
   
     <div class="login-form_password">
       <label>password</label>
-      <span class="help-info">(uppercase and lowercase letters. numbers, !/@/#/?)</span>
+      <span class="help-info">(uppercase and lowercase letters, numbers, !/@/#/?)</span>
       <input formControlName="userPassword" type="password">
       <div class="alert"
         *ngIf="_password.errors?.['required'] && _password.touched">
@@ -29,6 +29,9 @@
       </div>
     </div>
   
-    <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Login</button>
+    <div class="btn-entry">
+      <button type="button" class="btn-registration" routerLink="/registration">Registration</button>
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Login</button>
+    </div>
   </form>
 </div>
