@@ -52,7 +52,11 @@
 ## Скриншоты:
 <details><summary><b>Развернуть</b></summary>
 
-[![YoutubeClient]()]()
+[![YoutubeClient](https://user-images.githubusercontent.com/85887443/230054469-b8b5473c-decc-4d48-8dbc-1d221eccff46.png)]()
+
+[![YoutubeClient](https://user-images.githubusercontent.com/85887443/230054579-be945122-06c5-449e-9f35-2e5c8beed0a3.png)]()
+
+[![YoutubeClient](https://user-images.githubusercontent.com/85887443/230054624-9e2e2b99-712f-43b2-b4bc-e126aecc4555.png)]()
 
 </details>
 
