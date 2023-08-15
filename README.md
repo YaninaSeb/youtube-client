@@ -1,64 +1,27 @@
-# YoutubeClient
+# MyApp
 
-### ***Учебный проект из курса [The Rolling Scopes School / Angular](https://rs.school/angular/)***  
-***Выполнен:  апрель 2022***  
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-## Описание проекта
-Это проект по созданию клиентского приложения YouTube (с использованием API YouTube)   
-[Ссылка на задание. Часть 1](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/intro.md)   
-[Ссылка на задание. Часть 2](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/components-directives-pipes.md)   
-[Ссылка на задание. Часть 3](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/modules-services-routing.md)   
-[Ссылка на задание. Часть 4](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/rxjs-observables-http.md)   
-[Ссылка на задание. Часть 5](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/forms.md)   
-[Ссылка на задание. Часть 6](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/NgRX.md)   
-[Ссылка на задание. Часть 7](https://github.com/rolling-scopes-school/tasks/blob/master/angular/modules/unit-test/README-RU.md)   
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Функциональность:
-- Авторизация пользователя (в противном случае переход на другие страницы запрещен)
-- Поиск видео по ключевому слову
-- Сортировка результатов поиска по дате или количеству просмотров   
-- Фильтрация результатов поиска по ключевому слову
-- Просмотр подробной информации о выбранном видео на отдельной странице
-- Возможность создания собственной карты на странице администратора
-- Перенаправление пользователя на страницу 404 при вводе им неверного URL-адреса
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Стек технологий:
-- TypeScript 
-- Angular
-  - Routing
-  - RxJS & Observables
-  - HTTP
-  - Forms
-- HTML5
-- CSS3
+## Build
 
-## Установка проекта:
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Клонировать репозиторий:
+## Running unit tests
 
-    https://github.com/YaninaSeb/youtube-client.git
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Установить зависимости:
+## Running end-to-end tests
 
-    npm install
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-Запустить проект:
+## Further help
 
-    npm run start
-
-
-## Скриншоты:
-<details><summary><b>Развернуть</b></summary>
-
-[![YoutubeClient](https://user-images.githubusercontent.com/85887443/230054469-b8b5473c-decc-4d48-8dbc-1d221eccff46.png)]()
-
-[![YoutubeClient](https://user-images.githubusercontent.com/85887443/230054579-be945122-06c5-449e-9f35-2e5c8beed0a3.png)]()
-
-[![YoutubeClient](https://user-images.githubusercontent.com/85887443/230054624-9e2e2b99-712f-43b2-b4bc-e126aecc4555.png)]()
-
-</details>
-
-## Ссылка на проект:
-https://yaninaseb.github.io/youtube-client/
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
